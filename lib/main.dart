@@ -1,5 +1,4 @@
-import 'package:firebase_google_auth/tow_button/homepage.dart';
-import 'package:firebase_google_auth/unique_id/uni_home.dart';
+import 'package:firebase_google_auth/LogSingAuth/LoginScr.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: LoginScreen(),
     );
   }
 }
