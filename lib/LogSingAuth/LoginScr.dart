@@ -1,7 +1,7 @@
-import 'package:firebase_google_auth/LogSingAuth/CustormWidget/CustmButton.dart';
-import 'package:firebase_google_auth/LogSingAuth/CustormWidget/SnackBar.dart';
-import 'package:firebase_google_auth/LogSingAuth/CustormWidget/TextField.dart';
-import 'package:firebase_google_auth/LogSingAuth/CustormWidget/alreadyAccount.dart';
+import 'package:firebase_google_auth/CustormWidget/CustmButton.dart';
+import 'package:firebase_google_auth/CustormWidget/SnackBar.dart';
+import 'package:firebase_google_auth/CustormWidget/TextField.dart';
+import 'package:firebase_google_auth/CustormWidget/alreadyAccount.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
