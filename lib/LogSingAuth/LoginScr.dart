@@ -1,7 +1,7 @@
-import 'package:firebase_google_auth/CustormWidget/CustmButton.dart';
-import 'package:firebase_google_auth/CustormWidget/SnackBar.dart';
-import 'package:firebase_google_auth/CustormWidget/TextField.dart';
-import 'package:firebase_google_auth/CustormWidget/alreadyAccount.dart';
+import 'package:firebase_google_auth/CustomWidget/CustmButton.dart';
+import 'package:firebase_google_auth/CustomWidget/SnackBar.dart';
+import 'package:firebase_google_auth/CustomWidget/TextField.dart';
+import 'package:firebase_google_auth/CustomWidget/alreadyAccount.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +21,11 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('data'),
+        title: Text(
+          'Log in',
+          style:
+              TextStyle(color: Colors.pinkAccent, fontWeight: FontWeight.bold),
+        ),
       ),
       body: Center(
         child: Column(

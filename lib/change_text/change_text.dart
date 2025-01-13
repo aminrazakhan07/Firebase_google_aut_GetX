@@ -44,8 +44,9 @@ class ChangeText extends StatelessWidget {
             SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 10),
-              child: TextField(
+              child: TextFormField(
                 controller: name,
+                onTapOutside: (event) => FocusScope.of(context).unfocus(),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,

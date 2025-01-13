@@ -27,10 +27,13 @@ class CustomTextfield extends StatelessWidget {
           autocorrect: true,
           decoration: InputDecoration(
             label: Text(lblText),
-            labelStyle: TextStyle(color: Colors.pinkAccent),
+            labelStyle: TextStyle(
+              color: Colors.pinkAccent,
+              fontSize: 22,
+            ),
             hintText: hint,
             hintStyle: TextStyle(
-              color: Colors.blueGrey[200],
+              color: const Color.fromARGB(255, 255, 185, 208),
             ),
             prefixIcon: Icon(prefix),
             prefixIconColor: Colors.pinkAccent[100],
