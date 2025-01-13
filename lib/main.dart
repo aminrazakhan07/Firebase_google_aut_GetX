@@ -1,6 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_google_auth/LogSingAuth/LoginScr.dart';
-import 'package:firebase_google_auth/change_text/change_text.dart';
+import 'package:firebase_google_auth/LogSingAuth/Screen_View/LoginScr.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ChangeText(),
+      home: LoginScreen(),
     );
   }
 }
