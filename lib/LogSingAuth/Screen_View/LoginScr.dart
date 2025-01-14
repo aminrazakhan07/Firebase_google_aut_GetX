@@ -2,20 +2,21 @@ import 'package:firebase_google_auth/CustomWidget/CustmButton.dart';
 import 'package:firebase_google_auth/CustomWidget/SnackBar.dart';
 import 'package:firebase_google_auth/CustomWidget/TextField.dart';
 import 'package:firebase_google_auth/CustomWidget/alreadyAccount.dart';
+import 'package:firebase_google_auth/Services/loginService.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rounded_loading_button_plus/rounded_loading_button.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
+  // TextEditingController inPutField = TextEditingController();
+  // TextEditingController passwordField = TextEditingController();
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController inPutField = TextEditingController();
-  TextEditingController passwordField = TextEditingController();
-
+//////
+  final RoundedLoadingButtonController _buttonController =
+      RoundedLoadingButtonController();
+  final Loginservice loginservice = Loginservice();
+  //
   @override
   Widget build(BuildContext context) {
     return Scaffold(

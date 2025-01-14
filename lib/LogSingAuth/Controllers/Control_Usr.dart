@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_google_auth/LogSingAuth/Module/our_user.dart';
 import 'package:firebase_google_auth/LogSingAuth/Screen_View/Home.dart';
+import 'package:firebase_google_auth/Services/usrDatabase.dart';
 import 'package:flutter/material.dart';
 
 class UserController {
@@ -37,6 +38,25 @@ class UserController {
     } catch (e) {
       return true;
     }
+  }
+
+  /////////
+
+  Future<bool> loginUser(
+      BuildContext context, String email, String passCode) async {
+    try {
+      UserCredential loginResult =
+          await auth.signInWithEmailAndPassword(email: email, password: "");
+      User? user = loginResult.user;
+      if (user != null) {
+        Navigator.pushReplacementNamed(context, '/home');
+      }
+      if (loginResult.user != null) {
+        await UsrDataBase().getUserInfo();
+      }
+      return true;
+    } catch (e) {}
+    return true;
   }
 }
 

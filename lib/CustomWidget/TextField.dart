@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatelessWidget {
@@ -6,6 +8,7 @@ class CustomTextfield extends StatelessWidget {
   final String hint;
   final IconData? prefix;
   final bool obscur;
+  final Function(String)? onChange;
   const CustomTextfield({
     super.key,
     required this.textController,
@@ -13,6 +16,7 @@ class CustomTextfield extends StatelessWidget {
     required this.hint,
     this.prefix,
     this.obscur = false,
+    this.onChange,
   });
 
   @override
@@ -20,8 +24,9 @@ class CustomTextfield extends StatelessWidget {
     return Container(
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10.0, left: 20, right: 20),
-        child: TextField(
+        child: TextFormField(
           controller: textController,
+          onChanged: onChange,
           obscureText: obscur,
           autofocus: true,
           autocorrect: true,
