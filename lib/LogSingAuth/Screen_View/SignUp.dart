@@ -4,6 +4,7 @@ import 'package:firebase_google_auth/CustomWidget/SnackBar.dart';
 import 'package:firebase_google_auth/CustomWidget/TextField.dart';
 import 'package:firebase_google_auth/CustomWidget/alreadyAccount.dart';
 import 'package:firebase_google_auth/LogSingAuth/Controllers/Control_Usr.dart';
+import 'package:firebase_google_auth/LogSingAuth/Screen_View/LoginScr.dart';
 import 'package:firebase_google_auth/Services/registerService.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
@@ -90,6 +91,12 @@ class SignupScr extends StatelessWidget {
               comments: 'Already have an account?',
               switchPage: 'Sign Up',
               onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ));
+                //
                 SnackbarHelper.showSnackbar(
                   title: 'Sign Up',
                   message: 'Successfully',

@@ -3,6 +3,7 @@ import 'package:firebase_google_auth/LogSingAuth/Module/our_user.dart';
 import 'package:firebase_google_auth/LogSingAuth/Screen_View/Home.dart';
 import 'package:firebase_google_auth/Services/usrDatabase.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class UserController {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -21,9 +22,8 @@ class UserController {
       User? u = authResult.user;
       //
       if (u != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScr()),
+        Get.put(
+          HomeScr(),
         );
         if (authResult.user != null) {
           user.uid = authResult.user!.uid;
