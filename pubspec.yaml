@@ -43,6 +43,7 @@ dependencies:
   cloud_firestore: ^5.6.1
   achievement_view: ^1.0.1
   page_transition: ^2.2.1
+  flutter_typeahead: ^5.2.0
 
 dev_dependencies:
   flutter_test:

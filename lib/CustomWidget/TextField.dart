@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 class CustomTextfield extends StatelessWidget {
   final TextEditingController textController;
@@ -64,6 +65,94 @@ class CustomTextfield extends StatelessWidget {
             ),
             contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+///////  Auto Comlete TextField
+class AutoSearchText extends StatefulWidget {
+  @override
+  _AutoSearchTextState createState() => _AutoSearchTextState();
+}
+
+class _AutoSearchTextState extends State<AutoSearchText> {
+  final TextEditingController _controller = TextEditingController();
+  final List<String> _allItems = [
+    'Apple',
+    'Banana',
+    'Cherry',
+    'Date',
+    'Grapes',
+    'Mango',
+    'Orange',
+    'Pineapple',
+    'Strawberry',
+    'Watermelon',
+  ];
+  List<String> _filteredItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Initially, filtered list contains all items
+    _filteredItems = _allItems;
+  }
+
+  void _filterSearchResults(String query) {
+    if (query.isEmpty) {
+      setState(() {
+        _filteredItems = _allItems;
+      });
+    } else {
+      setState(() {
+        _filteredItems = _allItems
+            .where((item) => item.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AutoComplete TextField'),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _controller,
+              onChanged: _filterSearchResults,
+              decoration: InputDecoration(
+                labelText: 'Search',
+                hintText: 'Type to search...',
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _filteredItems.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(_filteredItems[index]),
+                    onTap: () {
+                      _controller.text = _filteredItems[index];
+                      FocusScope.of(context).unfocus();
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
